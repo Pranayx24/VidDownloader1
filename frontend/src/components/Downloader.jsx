@@ -8,7 +8,7 @@ const Downloader = () => {
     const [result, setResult] = useState(null);
     const [error, setError] = useState('');
 
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    const API_URL = "https://viddownloader1.onrender.com";
 
     const handleDownload = async (e) => {
         e.preventDefault();
