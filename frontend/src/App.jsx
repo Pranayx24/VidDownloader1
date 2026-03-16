@@ -166,4 +166,4 @@ const PlatformBadge = ({ name }) => (
   </div>
 );
 
-export default App; this is app.jsx code
+export default App;
