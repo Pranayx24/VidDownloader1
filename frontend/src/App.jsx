@@ -54,7 +54,7 @@ function App() {
 
 {/* TRUST SECTION */}
 <div className="text-center mt-16 opacity-60 text-sm tracking-widest uppercase">
- {/* SECTION 4 - SUPPORTED PLATFORMS */}
+ {/* SECTION 2 - SUPPORTED PLATFORMS */}
       <section className="py-24 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-heading text-4xl md:text-5xl mb-12 tracking-wide uppercase">
@@ -69,7 +69,7 @@ function App() {
       
       </section>
 
-      {/* SECTION 2 - FEATURES */}
+      {/* SECTION 3 - FEATURES */}
       <section className="py-24 px-4 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-heading text-4xl md:text-5xl text-center mb-16 tracking-wide uppercase">
@@ -84,27 +84,23 @@ function App() {
         </div>
       </section>
 
-      {/* SECTION 3 - HOW TO DOWNLOAD */}
-      <section className="py-24 px-4 bg-[#0a0a0a]">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-heading text-4xl md:text-5xl text-center mb-16 tracking-wide uppercase">
-            How To Download Videos
-          </h2>
-          const StepCard = ({ step, text }) => (
-  <div className="flex-1 bg-[#111111] p-8 rounded-2xl border border-white/5 flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left hover:border-white/20 transition-colors">
-    
-    <div className="w-12 h-12 rounded-full bg-white text-black font-bold flex items-center justify-center flex-shrink-0 text-xl">
-      {step}
+     {/* SECTION 4 - HOW TO DOWNLOAD */}
+<section className="py-24 px-4 bg-[#0a0a0a]">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="font-heading text-4xl md:text-5xl text-center mb-16 tracking-wide uppercase">
+      How To Download Videos
+    </h2>
+
+    <div className="flex flex-col md:flex-row gap-6 justify-center">
+      <StepCard step="1" text="Copy the video link from Instagram, Twitter/X or Facebook." />
+      <StepCard step="2" text="Paste the link into the downloader box." />
+      <StepCard step="3" text="Click download and save the video instantly." />
     </div>
 
-    <p className="text-lg text-gray-300 font-medium mt-2 md:mt-0">
-      {text}
-    </p>
-
   </div>
-);
+</section>
 
-      {/* SECTION 4 - SUPPORTED PLATFORMS */}
+      {/* SECTION 5 - SUPPORTED PLATFORMS */}
       <section className="py-24 px-4 border-t border-white/10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-heading text-4xl md:text-5xl mb-12 tracking-wide uppercase">
@@ -118,7 +114,7 @@ function App() {
         </div>
       </section>
 
-      {/* SECTION 5 - FAQ */}
+      {/* SECTION 6 - FAQ */}
       <section className="py-24 px-4 bg-[#0a0a0a]">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-heading text-4xl md:text-5xl text-center mb-12 tracking-wide uppercase">
@@ -145,7 +141,7 @@ function App() {
         </div>
       </section>
 
-      {/* SECTION 6 - FOOTER */}
+      {/* SECTION 7 - FOOTER */}
       <footer className="py-12 border-t border-white/10 text-center">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-left">
