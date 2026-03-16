@@ -8,7 +8,7 @@ const Downloader = () => {
     const [result, setResult] = useState(null);
     const [error, setError] = useState('');
 
-    const API_URL = "https://viddownloader1.onrender.com";
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
     const handleDownload = async (e) => {
         e.preventDefault();
@@ -32,38 +32,36 @@ const Downloader = () => {
     };
 
     return (
-        <div className="w-full max-w-2xl mx-auto px-4">
-            <div className="glass-morphism p-8 shadow-2xl">
-                <div className="text-center mb-8">
-                    <h1 className="text-4xl font-extrabold mb-2 gradient-text">Video Downloader</h1>
-                    <p className="text-slate-400">Instagram • Facebook • Twitter / X</p>
-                </div>
-
-                <form onSubmit={handleDownload} className="relative mb-8">
-                    <div className="relative flex items-center">
-                        <div className="absolute left-4 text-slate-400">
-                            <LinkIcon size={20} />
+        <div className="w-full max-w-3xl mx-auto px-4">
+            <div className="bg-[#111111] border border-white/10 p-4 md:p-6 rounded-2xl shadow-2xl relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/[0.02] to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none"></div>
+                <form onSubmit={handleDownload} className="relative z-10">
+                    <div className="relative flex flex-col md:flex-row items-stretch gap-4">
+                        <div className="relative w-full flex items-center">
+                            <div className="absolute left-6 text-gray-500">
+                                <LinkIcon size={24} />
+                            </div>
+                            <input
+                                type="text"
+                                placeholder="Paste video URL here..."
+                                className="w-full bg-[#0a0a0a] border border-white/10 text-white pl-16 pr-6 py-5 rounded-xl focus:outline-none focus:ring-1 focus:ring-white/30 focus:border-white/30 transition-all text-lg font-medium placeholder:text-gray-600"
+                                value={url}
+                                onChange={(e) => setUrl(e.target.value)}
+                            />
                         </div>
-                        <input
-                            type="text"
-                            placeholder="Paste video URL here..."
-                            className="w-full bg-slate-800/50 border border-slate-700 text-white pl-12 pr-32 py-4 rounded-xl focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all outline-none"
-                            value={url}
-                            onChange={(e) => setUrl(e.target.value)}
-                        />
                         <button
                             type="submit"
                             disabled={loading}
-                            className="absolute right-2 px-6 py-2 bg-sky-600 hover:bg-sky-500 text-white font-semibold rounded-lg transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full md:w-auto px-10 py-5 border border-white bg-transparent text-white hover:bg-white hover:text-black font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap text-lg uppercase tracking-wider"
                         >
                             {loading ? (
                                 <>
-                                    <Loader2 className="animate-spin" size={18} />
+                                    <Loader2 className="animate-spin text-inherit flex-shrink-0" size={24} />
                                     <span>Fetching...</span>
                                 </>
                             ) : (
                                 <>
-                                    <Download size={18} />
+                                    <Download size={24} className="text-inherit flex-shrink-0" />
                                     <span>Download</span>
                                 </>
                             )}
@@ -72,54 +70,48 @@ const Downloader = () => {
                 </form>
 
                 {error && (
-                    <div className="bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 rounded-lg flex items-center gap-3 mb-6 animate-pulse">
-                        <AlertCircle size={20} />
-                        <p>{error}</p>
+                    <div className="mt-6 bg-red-950/30 border border-red-900/50 text-red-500 px-6 py-4 rounded-xl flex items-center gap-3 animate-slide-up relative z-10">
+                        <AlertCircle size={24} className="flex-shrink-0" />
+                        <p className="font-medium text-lg">{error}</p>
                     </div>
                 )}
 
                 {result && (
-                    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <div className="flex flex-col md:flex-row gap-6 p-4 bg-slate-800/30 rounded-2xl border border-slate-700">
+                    <div className="mt-8 space-y-6 animate-slide-up relative z-10">
+                        <div className="flex flex-col md:flex-row gap-8 p-6 bg-[#0a0a0a] rounded-xl border border-white/5 text-left">
                             {result.thumbnail && (
-                                <div className="relative group w-full md:w-48 aspect-video md:aspect-square overflow-hidden rounded-xl">
-                                    <img src={result.thumbnail} alt={result.title} className="w-full h-full object-cover" />
-                                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <Play className="text-white fill-white" size={40} />
+                                <div className="relative group/thumb w-full md:w-64 aspect-video overflow-hidden rounded-lg bg-black/50 flex-shrink-0">
+                                    <img src={result.thumbnail} alt={result.title} className="w-full h-full object-cover transition-transform duration-500 group-hover/thumb:scale-105" />
+                                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover/thumb:opacity-100 transition-opacity duration-300">
+                                        <Play className="text-white fill-white" size={48} />
                                     </div>
                                 </div>
                             )}
-                            <div className="flex-1 flex flex-col justify-between">
+                            <div className="flex-1 flex flex-col justify-between py-2 min-w-0">
                                 <div>
-                                    <div className="flex items-center gap-2 text-sky-400 text-sm font-bold uppercase tracking-wider mb-2">
-                                        <CheckCircle2 size={16} />
+                                    <div className="flex items-center gap-2 text-white/50 text-sm font-bold uppercase tracking-widest mb-3">
+                                        <CheckCircle2 size={18} className="text-green-500" />
                                         <span>Ready to Download</span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-white line-clamp-2 mb-2">{result.title || 'Video Title'}</h3>
-                                    <div className="flex gap-4 text-slate-400 text-sm">
-                                        {result.duration && <span>Duration: {result.duration}</span>}
-                                        {result.source && <span>Source: {result.source}</span>}
+                                    <h3 className="text-2xl font-bold text-white line-clamp-2 mb-3 leading-snug">{result.title || 'Video Title'}</h3>
+                                    <div className="flex flex-wrap gap-4 md:gap-6 text-gray-400 font-medium">
+                                        {result.duration && <span>{result.duration}</span>}
+                                        {result.source && <span className="capitalize">{result.source}</span>}
                                     </div>
                                 </div>
                                 <a
                                     href={result.downloadUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="mt-4 w-full md:w-max px-8 py-3 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-lg shadow-sky-900/20 transition-all text-center flex items-center justify-center gap-2"
+                                    className="mt-6 w-full md:w-max px-8 py-4 border border-white bg-white text-black hover:bg-transparent hover:text-white font-bold rounded-xl transition-all duration-300 text-center flex items-center justify-center gap-3 text-lg uppercase tracking-wider"
                                 >
-                                    <Download size={20} />
+                                    <Download size={20} className="text-inherit flex-shrink-0" />
                                     Save Video
                                 </a>
                             </div>
                         </div>
                     </div>
                 )}
-                
-                <div className="mt-8 pt-8 border-t border-slate-800 text-center">
-                    <p className="text-slate-500 text-sm">
-                        Supported platforms: Instagram (Reels), Facebook (Videos), Twitter / X
-                    </p>
-                </div>
             </div>
         </div>
     );
