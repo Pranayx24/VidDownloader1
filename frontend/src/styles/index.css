@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -18,8 +18,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-/* PREMIUM BACKGROUND */
+/* PREMIUM BACKGROUND /
 
 body {
   margin: 0;
@@ -40,16 +39,14 @@ body {
   width: 100%;
 }
 
-
-/* HEADLINE FONT */
+/ HEADLINE FONT /
 
 .font-heading {
   font-family: 'Bebas Neue', 'Anton', sans-serif;
   letter-spacing: 0.05em;
 }
 
-
-/* GLASS CARD */
+/ GLASS CARD /
 
 .glass-morphism {
   background: rgba(17,17,17,0.7);
@@ -58,8 +55,7 @@ body {
   border-radius: 1rem;
 }
 
-
-/* GRADIENT TEXT */
+/ GRADIENT TEXT /
 
 .gradient-text {
   background: white;
@@ -67,8 +63,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-
-/* ANIMATIONS */
+/ ANIMATIONS /
 
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
@@ -80,8 +75,7 @@ body {
   transform: translateY(20px);
 }
 
-
-/* KEYFRAMES */
+/ KEYFRAMES /
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -99,8 +93,7 @@ body {
   }
 }
 
-
-/* ANIMATION DELAYS */
+/ ANIMATION DELAYS */
 
 .animation-delay-100 { animation-delay: 100ms; }
 .animation-delay-200 { animation-delay: 200ms; }
