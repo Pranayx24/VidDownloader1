@@ -1,3 +1,4 @@
+import Navbar from "./components/Navbar";
 import React, { useState } from 'react';
 import Downloader from './components/Downloader';
 import { Zap, MonitorPlay, Shield, LogIn, ChevronDown } from 'lucide-react';
@@ -32,7 +33,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-white selection:text-black">
-
+<Navbar />
       {/* HERO SECTION */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden">
 
