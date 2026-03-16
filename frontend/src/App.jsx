@@ -37,17 +37,35 @@ function App() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-white/[0.02] rounded-full blur-[100px] pointer-events-none"></div>
         
         <div className="z-10 w-full max-w-4xl mx-auto text-center mt-12 mb-8 animate-slide-up">
-          <h1 className="font-heading text-6xl md:text-8xl lg:text-9xl mb-4 tracking-wider uppercase">
-            Video Downloader
-          </h1>
+          <h1 className="font-heading text-6xl md:text-8xl lg:text-9xl mb-4 tracking-wider uppercase leading-none">
+  INSTAGRAM REELS  
+  <br />
+  VIDEO DOWNLOADER
+</h1>
+
+<p className="text-lg md:text-xl text-gray-400 font-medium max-w-2xl mx-auto mt-6">
+Download Instagram Reels, Twitter/X and Facebook videos instantly in HD.  
+Fast, secure and completely free.
+</p>
           <p className="text-lg md:text-xl text-gray-400 font-medium max-w-2xl mx-auto">
             Download Instagram Reels, Twitter/X and Facebook videos instantly in HD.
           </p>
         </div>
 
         <div className="z-10 w-full animate-slide-up animation-delay-200">
-          <Downloader />
-        </div>
+  <Downloader />
+</div>
+
+{/* TRUST SECTION */}
+<div className="text-center mt-16 opacity-60 text-sm tracking-widest uppercase">
+  Supported Platforms
+</div>
+
+<div className="flex justify-center gap-10 mt-6 text-gray-400 text-lg font-semibold">
+  <span>Instagram</span>
+  <span>Twitter / X</span>
+  <span>Facebook</span>
+</div>
       </section>
 
       {/* SECTION 2 - FEATURES */}
